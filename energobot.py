@@ -1,6 +1,6 @@
 import requests
 import datetime
-from time import sleep
+import logging
 
 TOKEN = "533395055:AAHkcRQLKwo6hHxtgON_LlcUagNRSQCUTyU"
 
@@ -54,6 +54,8 @@ def main():
             last_chat_text = last_update['message']['text']
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
+
+            logging.info("Received message from %s: %s" % (last_chat_name, last_chat_text))
 
             if last_chat_text.lower() in greetings and today == now.day and 6 <= hour < 12:
                 greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
