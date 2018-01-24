@@ -1,1 +1,1 @@
-web: python energobot.py
+worker: python energobot.py
